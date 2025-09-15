@@ -1,0 +1,131 @@
+:root {
+  --bg: #222;
+  --card: #2e2e2e;
+  --accent: #2563eb;
+  --muted: #939397;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  background: var(--bg);
+  margin: 0;
+  padding: 2rem;
+  color: #f3f4f6;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+p.lead {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  margin-bottom: 1rem;
+}
+
+.question {
+  margin-bottom: 0.75rem;
+}
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+label.answer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+label.answer input {
+  transform: scale(1.05);
+}
+label.answer:hover {
+  background: #505155;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+button.small {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+.progress {
+  height: 10px;
+  background: #eef2ff;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress > i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #32eb60);
+  width: 0%;
+}
+
+.result {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+pre.debug {
+  background: #0f172a;
+  color: #e6eef8;
+  padding: 0.75rem;
+  border-radius: 8px;
+  overflow: auto;
+  font-size: 0.9rem;
+}
+
+footer {
+  margin-top: 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 1rem;
+  }
+}
