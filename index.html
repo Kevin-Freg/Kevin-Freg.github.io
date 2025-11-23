@@ -163,6 +163,26 @@
         }
       }
 
+      /* dieser media abschnitt ist komplett AI weil ich kein bock mehr hab*/
+      @media (max-width: 520px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        /* Button unter das Logo setzen und Inline‑Styles für mobile Darstellung überschreiben */
+        #bg-toggle {
+          order: 2 !important;
+          margin-left: 0 !important;
+          height: 40px !important;
+          width: auto !important;
+          padding: 8px 12px !important;
+          border-radius: 10px !important;
+          flex: none !important;
+          align-self: flex-start !important;
+        }
+      }
+
       /* frog wiggle */
       .float {
         animation: floaty 6s ease-in-out infinite;
@@ -217,6 +237,7 @@
             eine Quest, schmiede Artefakte, empfange den Segen.
           </p>
         </div>
+        <!-- das gesamte stylising von dem Button hat viel zu lange gedauert :c-->
         <button
           id="bg-toggle"
           style="
