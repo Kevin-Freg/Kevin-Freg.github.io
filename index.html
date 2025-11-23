@@ -308,7 +308,7 @@
           </p>
         </article>
 
-        <footer>Viel Erfolg — möge der Rat euch wohlgesonnen sein.</footer>
+        <footer>Viel Erfolg! Möge der Rat euch wohlgesonnen sein.</footer>
       </section>
 
       <audio
@@ -326,11 +326,10 @@
         const audio = document.getElementById("bg-audio");
         const btn = document.getElementById("bg-toggle");
 
-        // Sicherstellen, dass loop aktiv ist
         audio.loop = true;
 
         audio.muted = false;
-        audio.play().catch(() => {});
+        audio.play();
 
         // Button: toggelt zwischen Play (Ton an) und Pause (aus)
         btn.addEventListener("click", async () => {
