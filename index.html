@@ -3,324 +3,360 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Multiple-Choice-Quiz</title>
-    <link rel="stylesheet" href="./quizstyle.css" />
+    <title>Artefakt des hobbylosen Frosches</title>
+    <style>
+      :root {
+        --bg1: #071c0f; /* tiefes moosgrün */
+        --bg2: #0b2b16; /* dunkles waldgrün */
+        --accent: #c9f38a; /* helles moos */
+        --gold: #e6c97b;
+        --glass: rgba(255, 255, 255, 0.04);
+        --glass-strong: rgba(255, 255, 255, 0.06);
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(140deg, var(--bg1), var(--bg2));
+        color: #e9f7e7;
+        position: relative;
+      }
+      html::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("../media/tomato-frog_pexels.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .container {
+        max-width: 980px;
+        margin: 40px auto;
+        padding: 28px;
+      }
+
+      header {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        align-items: center;
+      }
+      .logo {
+        width: 88px;
+        height: 88px;
+        flex: 0 0 88px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--accent), var(--gold));
+        display: grid;
+        place-items: center;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+      }
+      .logo svg {
+        width: 64px;
+        height: 64px;
+        filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        letter-spacing: 0.6px;
+      }
+      p.lead {
+        margin: 6px 0 0;
+        color: #dfffd8;
+        opacity: 0.95;
+      }
+
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 8px 30px rgba(3, 10, 6, 0.5);
+        backdrop-filter: blur(6px);
+        border: 1px solid var(--glass);
+      }
+
+      .story {
+        line-height: 1.6;
+        font-size: 1rem;
+        padding: 18px;
+        border-radius: 10px;
+        background: linear-gradient(
+          90deg,
+          rgba(201, 243, 138, 0.03),
+          rgba(230, 201, 123, 0.02)
+        );
+      }
+
+      blockquote {
+        margin: 0 0 12px 0;
+        padding: 14px;
+        border-left: 4px solid var(--accent);
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+      }
+      blockquote p {
+        margin: 0;
+        font-style: italic;
+      }
+
+      .steps {
+        margin-top: 12px;
+      }
+      .steps ul {
+        padding-left: 18px;
+      }
+      .steps li {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 8px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          rgba(255, 255, 255, 0.015)
+        );
+        border: 1px solid var(--glass-strong);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .step-num {
+        min-width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: linear-gradient(180deg, var(--accent), var(--gold));
+        display: grid;
+        place-items: center;
+        color: #08310f;
+        font-weight: 700;
+      }
+      .muted {
+        opacity: 0.9;
+        color: #e7fbe0;
+      }
+
+      footer {
+        margin-top: 26px;
+        text-align: center;
+        color: rgba(233, 247, 231, 0.7);
+        font-size: 0.9rem;
+      }
+
+      /* small screens */
+      @media (max-width: 900px) {
+        .logo {
+          width: 72px;
+          height: 72px;
+        }
+      }
+
+      /* frog wiggle */
+      .float {
+        animation: floaty 6s ease-in-out infinite;
+      }
+      @keyframes floaty {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <header>
+        <div class="logo float" aria-hidden="true">
+          <!-- somehow a frog i guess -->
+          <svg
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="32" cy="32" r="30" fill="white" opacity="0.06" />
+            <path
+              d="M16 38c4-8 12-12 16-12s12 4 16 12"
+              stroke="#05220c"
+              stroke-width="2.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle cx="24" cy="24" r="3.8" fill="#05220c" />
+            <circle cx="40" cy="24" r="3.8" fill="#05220c" />
+            <path
+              d="M23 44c3 3 10 3 14 0"
+              stroke="#05220c"
+              stroke-width="2.4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
         <div>
-          <h1>
-            Die Prüfung des Frosches — Nur der Auserwählte kann alle Fragen
-            beantworten
-          </h1>
+          <h1>Artefakt des hobbylosen Frosches</h1>
           <p class="lead">
-            Trau dich die Fragen zu beantworten und ich sag dir ob du der
-            richtige bist.
+            Ein Ruf des Rates: Einfache Ribbituale, große Verantwortung; leite
+            eine Quest, schmiede Artefakte, empfange den Segen.
           </p>
         </div>
       </header>
 
-      <main>
-        <section id="quiz" class="card" aria-live="polite">
-          <div class="progress" aria-hidden="true" style="margin-bottom: 12px">
-            <i id="progressBar"></i>
+      <section class="card">
+        <article class="story">
+          <blockquote>
+            <p>
+              „Der Rat der Frösche suchte mich auf um uns alle zu warnen, denn
+              die Welt ist in Gefahr und es ist unsere Aufgabe dies zu
+              verhindern."
+            </p>
+          </blockquote>
+
+          <p class="muted">Sie erzählten:</p>
+          <p class="muted" style="margin-bottom: 12px">
+            "Einfallsreichtum, Scharfsinn, Überzeugungskraft und Mut zur
+            Führung, all dies waren Eigenschafften längst vergessener Helden,
+            die Relikte erschufen um unsere Welt zusammenhalten. Jetzt seid ihr
+            an der Reihe, es ihnen gleichzutun."
+          </p>
+
+          <h3 style="margin-top: 10px">
+            Unsere Aufgabe: Erschafft die Artefakte des hobbylosen Frosches
+          </h3>
+
+          <div class="steps">
+            <ul>
+              <li>
+                <div class="step-num">1</div>
+                <div>
+                  <strong>Bereite eine Quest vor</strong>
+                  <div class="muted">
+                    Eine Quest bei der jeder ein Artefakt erschaffen kann und
+                    sammle im besten Fall Erfahrung die zur Leitung der Quest
+                    notwendig sind.
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="step-num">2</div>
+                <div>
+                  <strong>Präsentiere deinen Auftrag</strong>
+                  <div class="muted">
+                    Überzeuge deine Mitstreiter: Erkläre Zweck,
+                    Hintergrundgeschichte und welche Fähigkeiten gebraucht
+                    werden. Erster Advent
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="step-num">3</div>
+                <div>
+                  <strong>Vollende deine Planung</strong>
+                  <div class="muted">
+                    Lege Zeit, Ort und Verantwortlichkeiten fest (wie z.B.
+                    Materialbeschaffer, Wächter der Zeit) und lade die
+                    Teilnehmenden ein.
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="step-num">4</div>
+                <div>
+                  <strong>Achte auf Teilnahme</strong>
+                  <div class="muted">
+                    Stelle sicher, dass jeder aktiv mitarbeitet und am Ende ein
+                    Artefakt entstehen kann, denn niemand wird zurück gelassen.
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="step-num">5</div>
+                <div>
+                  <strong>Plane eine Folgequest</strong>
+                  <div class="muted">
+                    Falls im Eifer des Gefechts die Artefakte nicht fertig
+                    werden.
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
 
-          <div id="questionArea"></div>
+          <h3 style="margin-top: 16px">Ziel und Belohnung</h3>
+          <p>
+            Jeder Teilnehmer erhält von jeder Aktivität ein
+            <em>Artefakt des hobbylosen Frosches</em>. Nach dem Leiten der
+            Aktivität erhält man zusätzlich den
+            <strong>Segen des Frosch-Rates</strong> eine heroische Anerkennung
+            für Führung und Einfallsreichtum.
+          </p>
+        </article>
 
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-top: 14px;
-            "
-          >
-            <div class="muted" id="qInfo">
-              Frage <span id="current">1</span> von <span id="total">1</span>
-            </div>
-            <div class="controls">
-              <button id="nextBtn" class="ghost small" disabled>Nächste</button>
-              <button id="restartBtn" class="ghost small">Zurück</button>
-            </div>
-          </div>
-        </section>
+        <footer>Viel Erfolg — möge der Rat euch wohlgesonnen sein.</footer>
+      </section>
 
-        <section id="endMessage" class="card" style="display: none">
-          <h2>Ergebnis</h2>
-          <p class="result" id="scoreText"></p>
-          <p class="muted" id="feedbackText"></p>
-          <div
-            style="
-              margin-top: 1rem;
-              display: flex;
-              gap: 0.5rem;
-              flex-wrap: wrap;
-            "
-          >
-            <button id="reviewBtn" class="ghost small">
-              Antworten anzeigen
-            </button>
-            <button id="restartBtn2">Nochmal</button>
-          </div>
-        </section>
+      <audio
+        id="bg-audio"
+        src="../media/challenge_music.mp3"
+        loop
+        preload="auto"
+      ></audio>
+      <div class="steps">
+        <button id="bg-toggle" class="step-num" style="z-index: 2">
+          Musik an
+        </button>
+      </div>
+      <script>
+        const audio = document.getElementById("bg-audio");
+        const btn = document.getElementById("bg-toggle");
 
-        <section id="review" class="card" style="display: none">
-          <h3>Review — richtige Antworten</h3>
-          <div id="reviewList"></div>
-        </section>
-      </main>
-    </div>
+        // Sicherstellen, dass loop aktiv ist
+        audio.loop = true;
 
-    <script>
-      const QUESTIONS = [
-        {
-          type: "single",
-          question: "Was ist der wichtigste gegenstand in Peak?",
-          options: ["Bing Bong", "Seile", "Marshmallows", "Medikit"],
-          correct: [0],
-        },
-        {
-          type: "multiple",
-          question:
-            "Welche Aussagen über JWT (JSON Web Token) sind korrekt? (Mehrere Antworten möglich)",
-          options: [
-            "JWTs enthalten Claims, die signiert werden können",
-            "JWTs sind von Natur aus verschlüsselt",
-            "JWTs werden typischerweise im Authorization: Bearer <token> Header gesendet",
-            "JWTs sind unbegrenzt gültig, außer der Server löscht sie",
-          ],
-          correct: [0, 2],
-        },
-        {
-          type: "tf",
-          question: "Freg hat ein Stein-Frosch als Haustier.",
-          options: ["Wahr", "Falsch"],
-          correct: [0],
-        },
-        {
-          type: "single",
-          question: "Wer ist unser Kapitän?",
-          options: ["Gilbert", "Freg", "Kiki", "Kürawr"],
-          correct: [2],
-        },
-        {
-          type: "single",
-          question: "Welchen Character mained Xellium in Overwatch 2?",
-          options: ["Zarya", "Tracer", "Orisa", "Venture"],
-          correct: [3],
-        },
-      ];
+        audio.muted = false;
+        audio.play().catch(() => {});
 
-      let currentIndex = 0;
-      let userAnswers = Array(QUESTIONS.length).fill(null);
-
-      const totalEl = document.getElementById("total");
-      const currentEl = document.getElementById("current");
-      const questionArea = document.getElementById("questionArea");
-      const progressBar = document.getElementById("progressBar");
-
-      totalEl.textContent = QUESTIONS.length;
-
-      function renderQuestion(index) {
-        const q = QUESTIONS[index];
-        currentEl.textContent = index + 1;
-
-        let html = `<div class="question"><strong>${escapeHtml(
-          q.question
-        )}</strong></div>`;
-        html += '<form id="qForm" aria-label="Antworten"><div class="answers">';
-
-        q.options.forEach((opt, i) => {
-          const inputType = q.type === "multiple" ? "checkbox" : "radio";
-          const checkedAttr = isCheckedByUser(index, i) ? "checked" : "";
-          html += `<label class="answer"><input type="${inputType}" name="answer" value="${i}" ${checkedAttr}> <span>${escapeHtml(
-            opt
-          )}</span></label>`;
-        });
-
-        html += "</div></form>";
-        questionArea.innerHTML = html;
-
-        // Button-Text anpassen
-        const nextBtn = document.getElementById("nextBtn");
-        nextBtn.textContent =
-          index === QUESTIONS.length - 1 ? "Fertig" : "Nächste";
-        nextBtn.disabled = !hasSelection(index);
-
-        // Listener für Auswahl
-        questionArea.querySelectorAll("input").forEach((inp) =>
-          inp.addEventListener("change", () => {
-            saveSelectionFromForm(index);
-            nextBtn.disabled = !hasSelection(index);
-          })
-        );
-
-        updateProgressBar();
-      }
-
-      function isCheckedByUser(qIndex, optIndex) {
-        const ans = userAnswers[qIndex];
-        if (!ans) return false;
-        if (Array.isArray(ans)) return ans.includes(optIndex);
-        return ans === optIndex;
-      }
-
-      function saveSelectionFromForm(index) {
-        const q = QUESTIONS[index];
-        const inputs = questionArea.querySelectorAll("input");
-        if (q.type === "multiple") {
-          const chosen = [];
-          inputs.forEach((i) => {
-            if (i.checked) chosen.push(Number(i.value));
-          });
-          userAnswers[index] = chosen.length ? chosen : null;
-        } else {
-          const found = Array.from(inputs).find((i) => i.checked);
-          userAnswers[index] = found ? Number(found.value) : null;
-        }
-      }
-
-      function hasSelection(index) {
-        const a = userAnswers[index];
-        if (Array.isArray(a)) return a.length > 0;
-        return a !== null && a !== undefined;
-      }
-
-      function nextQuestion() {
-        if (currentIndex < QUESTIONS.length - 1) {
-          currentIndex++;
-          renderQuestion(currentIndex);
-        } else {
-          showResult();
-        }
-      }
-
-      function updateProgressBar() {
-        const pct = Math.round((currentIndex / QUESTIONS.length) * 100);
-        progressBar.style.width = pct + "%";
-      }
-
-      function calculateScore() {
-        let score = 0;
-        QUESTIONS.forEach((q, idx) => {
-          const user = userAnswers[idx];
-          const correct = q.correct.slice().sort().toString();
-          if (q.type === "multiple") {
-            if (Array.isArray(user)) {
-              const uSorted = user.slice().sort().toString();
-              if (uSorted === correct) score += 1;
+        // Button: toggelt zwischen Play (Ton an) und Pause (aus)
+        btn.addEventListener("click", async () => {
+          if (audio.paused) {
+            audio.muted = false;
+            try {
+              await audio.play();
+            } catch (e) {
+              console.error("Wiedergabe fehlgeschlagen:", e);
+              // fallback: versuche zumindest stumm abzuspielen
+              audio.muted = true;
+              audio.play().catch(() => {});
+              btn.textContent = "Musik aus (stumm)";
             }
           } else {
-            if (user !== null && user !== undefined) {
-              if ([].concat(q.correct).includes(user)) score += 1;
-            }
+            audio.pause();
           }
         });
-        return score;
-      }
 
-      function showResult() {
-        const score = calculateScore();
-        const max = QUESTIONS.length;
-        document.getElementById("quiz").style.display = "none";
-        document.getElementById("endMessage").style.display = "block";
-        document.getElementById(
-          "scoreText"
-        ).textContent = `Du hast ${score} von ${max} Punkten erreicht.`;
-
-        // Feedback
-        const pct = Math.round((score / max) * 100);
-        let feedback = "";
-        if (pct === 100)
-          feedback =
-            "Du bist der Auserwählte — Alles Gute zum Geburtstag!!! 🎉 <br>Ich will dir noch sagen, dass egal bei welchem Spiel oder Call mit dir, die Atmosphäre immer Cozy und Lustig ist. <br>Bleib weiterhin so, und vielleicht riecht man sich ja mal. ;)";
-        else if (pct >= 80)
-          feedback =
-            "Ouh Fast Perfekt — du bist aber nicht der den ich suche, bist du ein Spion? Oder hast du nur ein Fehler gemacht?";
-        else if (pct >= 60)
-          feedback =
-            "Vielleicht war es Glück, dass du bis hierher gekommen bist, aber trauen tue ich dir nicht.";
-        else feedback = "Hmmm, du scheinst hier falsch zu sein!!!";
-        document.getElementById("feedbackText").innerHTML = feedback;
-      }
-
-      function showReview() {
-        const review = document.getElementById("review");
-        const container = document.getElementById("reviewList");
-        container.innerHTML = "";
-
-        QUESTIONS.forEach((q, idx) => {
-          const user = userAnswers[idx];
-          const correct = q.correct;
-          let line = `<div style="margin-bottom:12px"><strong>${escapeHtml(
-            q.question
-          )}</strong><div class="muted">`;
-
-          line +=
-            "<div>Deine Antwort: " +
-            (user === null
-              ? "<em>keine Antwort</em>"
-              : Array.isArray(user)
-              ? user.map((i) => escapeHtml(q.options[i])).join(", ")
-              : escapeHtml(q.options[user])) +
-            "</div>";
-          line += "</div></div>";
-          container.innerHTML += line;
+        audio.addEventListener("play", () => {
+          if (!audio.muted) btn.textContent = "Musik aus";
         });
-
-        review.style.display = "block";
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: "smooth",
+        audio.addEventListener("pause", () => {
+          btn.textContent = "Musik an";
         });
-      }
-
-      function restart() {
-        currentIndex = 0;
-        userAnswers = Array(QUESTIONS.length).fill(null);
-        document.getElementById("quiz").style.display = "block";
-        document.getElementById("endMessage").style.display = "none";
-        document.getElementById("review").style.display = "none";
-        renderQuestion(0);
-        updateProgressBar();
-      }
-
-      function escapeHtml(s) {
-        return String(s)
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-      }
-
-      function prevQuestion() {
-        if (currentIndex > 0) {
-          currentIndex--;
-          renderQuestion(currentIndex);
-        }
-      }
-
-      // Button-Events
-      document.getElementById("nextBtn").addEventListener("click", () => {
-        if (!hasSelection(currentIndex)) {
-          alert("Bitte wähle zuerst eine Antwort.");
-          return;
-        }
-        nextQuestion();
-      });
-      document
-        .getElementById("restartBtn")
-        .addEventListener("click", prevQuestion);
-      document.getElementById("restartBtn2").addEventListener("click", restart);
-      document
-        .getElementById("reviewBtn")
-        .addEventListener("click", showReview);
-
-      // Initial render
-      renderQuestion(0);
-      updateProgressBar();
-    </script>
+      </script>
+    </main>
   </body>
 </html>
-
